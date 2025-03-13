@@ -17,6 +17,14 @@ export const routes: Routes = [
         loadChildren: () =>
           import('./pages/pages.routes').then((m) => m.PagesRoutes),
       },
+      /*se agrega la ruta para digesto */
+      {
+        path: 'digesto',
+        loadChildren: () =>
+          import('./pages/digesto/digesto.routes').then(
+            (m) => m.DigestoRoutes
+          ),
+      },
       {
         path: 'dashboards',
         loadChildren: () =>

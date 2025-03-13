@@ -5,16 +5,18 @@ export const navItems: NavItem[] = [
     navCap: 'Home',
   },
   {
-    displayName: 'Analytical',
+    displayName: 'Acuerdos',
     iconName: 'aperture',
-    route: '/dashboards/dashboard1',
+    route: '/digesto/acuerdos',
+    //route: '/apps/employee',
+
   },
   {
-    displayName: 'eCommerce',
+    displayName: 'Disposiciones',
     iconName: 'shopping-cart',
-    route: '/dashboards/dashboard2',
+    route: '/digesto/disposiciones',
   },
-  {
+{
     navCap: 'Apps',
   },
   {
