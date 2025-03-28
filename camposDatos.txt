@@ -1,0 +1,24 @@
+ACUERDOS
+
+_id  
+sesioninstrumentoLegal
+ratifica
+
+
+
+
+DISPOSICIONES
+
+SESIONES
+_id
+anio
+tipoSesion ORDINARIA  - EXTRAORDINARIA
+numero
+fechaHoraInicio
+
+SUBCATEGORIAS
+_id
+codigo
+descripcion
+
+SESIONES

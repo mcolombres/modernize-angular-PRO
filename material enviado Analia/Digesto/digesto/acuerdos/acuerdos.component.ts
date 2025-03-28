@@ -107,7 +107,7 @@
 //     this.action = data.action;
 //     this.local_data = { ...data.acuerdo };
 
-//     const initialDate = this.local_data.DateOfJoining
+//     const initialDate = this.local_data.DateOfJoining 
 //       ? new Date(this.local_data.DateOfJoining)
 //       : new Date();
 //     this.joiningDate.setValue(initialDate.toISOString().split('T')[0]);
@@ -161,6 +161,11 @@
 //     }
 //   }
 // }
+
+
+
+
+
 
 
 
@@ -301,7 +306,7 @@ export class AppAcuerdoDialogContentComponent {
       this.local_data.imagePath = 'assets/images/profile/user-1.jpg';
     }
   }
-
+  
   doAction(): void {
   this.local_data.DateOfJoining = this.joiningDate.value;
 
