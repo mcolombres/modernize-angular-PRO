@@ -159,7 +159,7 @@ export class AppKichenSinkComponent implements AfterViewInit {
   searchText: any;
   displayedColumns: string[] = [
     '#',
-    'name',
+    'Name',
     'email',
     'mobile',
     'date of joining',

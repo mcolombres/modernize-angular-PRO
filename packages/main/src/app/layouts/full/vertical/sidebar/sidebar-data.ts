@@ -2,20 +2,50 @@ import { NavItem } from './nav-item/nav-item';
 
 export const navItems: NavItem[] = [
   {
-    navCap: 'Home',
+    navCap: 'Digesto',
   },
   {
     displayName: 'Acuerdos',
-    iconName: 'aperture',
+    iconName: 'file-pencil',
     route: '/digesto/acuerdos',
-    //route: '/apps/employee',
 
   },
   {
     displayName: 'Disposiciones',
-    iconName: 'shopping-cart',
+    iconName:'vocabulary',
     route: '/digesto/disposiciones',
   },
+
+  {
+  displayName: 'Sesiones',
+  iconName: 'license',
+  route: '',
+  children: [
+    {
+      displayName: 'List',
+      iconName: 'point',
+      route: '/digesto/sesionData',
+    },
+    {
+      displayName: 'Detail',
+      iconName: 'point',
+      route: '/digesto/sesionData/viewInvoice/101',
+    },
+    {
+      displayName: 'Create',
+      iconName: 'point',
+      route: '/digesto/sesionData/addInvoice',
+    },
+    {
+      displayName: 'Edit',
+      iconName: 'point',
+      route: '/digesto/sesionData/editinvoice/101',
+    },
+  ],
+},
+
+
+
 {
     navCap: 'Apps',
   },

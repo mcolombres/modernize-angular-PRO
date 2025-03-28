@@ -46,6 +46,7 @@ export class AppEmployeeComponent implements AfterViewInit {
     'salary',
     'projects',
     'action',
+    'idAcuerdo'
   ];
 
   dataSource = new MatTableDataSource<Employee>([]);

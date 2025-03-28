@@ -166,11 +166,6 @@
 
 
 
-
-
-
-
-
 import { Component, Inject, Optional, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource, MatTable } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -182,7 +177,6 @@ import { MaterialModule } from 'src/app/material.module';
 import { TablerIconsModule } from 'angular-tabler-icons';
 import { Acuerdo } from 'src/app/pages/digesto/acuerdos/acuerdo';
 import { AcuerdoService } from 'src/app/services/apps/digesto/acuerdo.service';
-
 import { CommonModule } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -203,14 +197,14 @@ export class AppAcuerdosComponent implements AfterViewInit {
   searchText: any;
 
   displayedColumns: string[] = [
-    '#',
-    'name',
-    'email',
-    'mobile',
-    'date of joining',
+    'ID',
+    'SESION',
+    'INSTRUMENTO_LEGAL',
+    'RATIFICA',
+    /*'date of joining',
     'salary',
     'projects',
-    'action',
+    'action',*/
   ];
 
   dataSource = new MatTableDataSource<Acuerdo>([]);
@@ -277,7 +271,7 @@ export class AppAcuerdoDialogContentComponent {
   // tslint:disable-next-line - Disables all
   local_data: Acuerdo;
   selectedImage: any = '';
-  joiningDate = new FormControl();
+  //joiningDate = new FormControl();
 
   constructor(
     public dialog: MatDialog,
@@ -291,9 +285,9 @@ export class AppAcuerdoDialogContentComponent {
     this.action = data.action;
     this.local_data = { ...data.acuerdo };
 
-    this.joiningDate = new FormControl();
+  //  this.joiningDate = new FormControl();
 
-    if (this.local_data.DateOfJoining) {
+   /* if (this.local_data.DateOfJoining) {
       this.joiningDate.setValue(
         new Date(this.local_data.DateOfJoining).toISOString().split('T')[0]
       ); //  existing date
@@ -305,29 +299,35 @@ export class AppAcuerdoDialogContentComponent {
     // Set default image path if not already set
     if (!this.local_data.imagePath) {
       this.local_data.imagePath = 'assets/images/profile/user-1.jpg';
-    }
+    }*/
   }
 
   doAction(): void {
-  this.local_data.DateOfJoining = this.joiningDate.value;
+  //this.local_data.DateOfJoining = this.joiningDate.value;
 
   switch (this.action) {
     case 'Add':
       this.acuerdoService.addAcuerdo(this.local_data);
       this.dialog.open(AppAddAcuerdoComponent).afterClosed().subscribe(() => {
         this.dialogRef.close({ event: 'Refresh' });
-        this.openSnackBar('Employee added successfully!', 'Close');
+        this.openSnackBar('Se agregó un nuevo acuerdo con exito!', 'Close');
       });
       break;
     case 'Update':
       this.acuerdoService.updateAcuerdo(this.local_data);
       this.dialogRef.close({ event: 'Update' });
-      this.openSnackBar('Employee updated successfully!', 'Close');
+      this.openSnackBar('Se actualizo el acuerdo con exito!!', 'Close');
       break;
     case 'Delete':
-      this.acuerdoService.deleteAcuerdo(this.local_data.id);
+      //verificar si this.local_data._id es undefined antes de llamar al método deleteAcuerdo
+      if (this.local_data && this.local_data._id !== undefined) {
+        this.acuerdoService.deleteAcuerdo(+this.local_data._id);
+      } else {
+        console.error('El _id no está definido - no se puede eliminar ACUERDO');
+      }
+      //this.acuerdoService.deleteAcuerdo(+this.local_data._id);
       this.dialogRef.close({ event: 'Delete' });
-      this.openSnackBar('Employee deleted successfully!', 'Close');
+      this.openSnackBar('Se eliminó el acuerdo con exito!!!', 'Close');
       break;
     default:
       console.error('Unknown action:', this.action);
@@ -361,7 +361,7 @@ export class AppAcuerdoDialogContentComponent {
 
     reader.onload = (_event) => {
       if (typeof reader.result === 'string') {
-        this.local_data.imagePath = reader.result; // Set selected image path
+        //this.local_data.imagePath = reader.result; // Set selected image path
       }
     };
   }

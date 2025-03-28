@@ -30,6 +30,22 @@ export const DigestoRoutes: Routes = [
           ],
         },
       },
+
+/*se agrega ruta para sesiones como invoice */
+{
+  path: 'sesiones',
+  component: AppDisposicionesComponent,
+  data: {
+    title: 'Sesiones',
+    urls: [
+      { title: 'Digesto', url: '/digesto/sesiones' },
+      { title: 'sesiones' },
+    ],
+  },
+},
+
+
+
     ],
   },
 ];
